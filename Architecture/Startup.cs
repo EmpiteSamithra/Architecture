@@ -36,8 +36,10 @@ namespace Architecture
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                //options.UseSqlServer(
+                //    Configuration.GetConnectionString("DefaultConnection-dev")));
+            options.UseMySql(
+                Configuration.GetConnectionString("DefaultConnection-dev")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
